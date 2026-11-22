@@ -108,7 +108,7 @@ public class TremoloPlusBuild extends DocKit {
     // Grid: page 36 x 53, margins 3. Left column x=3..17, gap 2, right column x=19..33; both span y=3..50.
     // Right column rhythm: 5 | 1 | 14 | 1 | 5 | 1 | 14 | 1 | 5
     List<Tree.Obj> W = new ArrayList<>();
-    Tree.Obj shapeW = widget(segT, 3, 3, 14, 47, shape, "LFO shape"); set(shapeW, 6255, false); set(shapeW, 6257, (byte) 1);   // vertical, icon style
+    Tree.Obj shapeW = widget(segT, 3, 3, 14, 47, shape, "LFO shape"); set(shapeW, 6255, false); set(shapeW, 6257, (byte) 1); set(shapeW, 10143, (byte) 1);   // vertical, icon style, orange highlight (display colour 1)
     W.add(shapeW);
     String[] shapeKeys = {"sine","triangle","square","ramp_up","ramp_down","sample_and_hold","sample_and_slide_cubic"};
     for (int q = 0; q < 7; q++) { int y0 = 3 + (int) Math.round(47.0 * q / 7.0), y1 = 3 + (int) Math.round(47.0 * (q + 1) / 7.0);
@@ -126,11 +126,10 @@ public class TremoloPlusBuild extends DocKit {
     String uuid = UUID.nameUUIDFromBytes("tremolo-plus-custom-device".getBytes()).toString();
     String desc = "Tremolo with seven LFO shapes, free or tempo-synced rate, depth and note retrigger";
     String tags = "tremolo lfo amplitude modulation tempo sync retrigger";
-    set(root, 385, UUID.fromString(uuid)); set(root, 386, "Tremolo+"); set(root, 2057, desc); set(root, 389, tags); get(root, 387).val = "Custom";
+    set(root, 385, UUID.fromString(uuid)); set(root, 386, "Tremolo+"); set(root, 2057, desc); set(root, 389, tags); get(root, 387).val = "Asaniel";
     meta.put("device_name", "Tremolo+"); meta.put("preset_name", "Tremolo+"); meta.put("device_id", uuid); meta.put("device_uuid", uuid);
-    meta.put("device_description", desc); meta.put("comment", ""); meta.put("creator", "Custom"); meta.put("device_creator", "Custom"); meta.put("tags", tags);
+    meta.put("device_description", desc); meta.put("comment", ""); meta.put("creator", "Asaniel"); meta.put("device_creator", "Asaniel"); meta.put("tags", tags);
     meta.put("application_version_name", "6.1.7"); meta.put("has_note_input", Boolean.TRUE);
-    meta.put("revision_id", UUID.nameUUIDFromBytes(("rev" + uuid).getBytes()).toString().replace("-", "") + "00000000");
     write(root, meta, out);
   }
 }

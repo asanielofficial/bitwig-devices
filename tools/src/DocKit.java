@@ -83,12 +83,22 @@ public class DocKit {
     int[] fwd={0}; visitOwner(root,null,pos,fwd);
     if(fwd[0]>0) throw new RuntimeException(fwd[0]+" forward reference(s); reorder properties so owners are written first");
     System.out.println("objects="+pl.size()+" forward refs=0");
+    // The revision id is the SHA-1 of the written device, so every content change gets a new id (Bitwig can then
+    // tell a rebuilt device from the one it already indexed) and identical input gives an identical id.
+    byte[] first=writeBytes(root,meta);
+    String rev=new java.math.BigInteger(1, java.security.MessageDigest.getInstance("SHA-1").digest(first)).toString(16);
+    while(rev.length()<40) rev="0"+rev;
+    meta.put("revision_id", rev);
+    byte[] data=writeBytes(root,meta);
+    Files.write(Paths.get(out), data);
+    System.out.println("wrote "+out+" ("+data.length+" bytes, revision "+rev.substring(0,8)+")");
+  }
+  static byte[] writeBytes(Tree.Obj root, Map<String,Object> meta) throws Exception {
     com.bitwig.flt.file.format.FloatDeviceContentsFileFormat f = com.bitwig.flt.file.format.FloatDeviceContentsFileFormat.iMb();
     ByteArrayOutputStream bo=new ByteArrayOutputStream();
     final Tree.Obj froot=root;
     f.beI((com.bitwig.base.serial.odK) w -> Tree.writeObj(w, froot), bo, (Map)meta);
-    Files.write(Paths.get(out), bo.toByteArray());
-    System.out.println("wrote "+out+" ("+bo.size()+" bytes)");
+    return bo.toByteArray();
   }
   /** Compile Nitro source with Bitwig own parser into the blob stored in a Nitro module (property 10421): 0x00 + raw deflate. */
   public static byte[] compileNitro(String source, String name) throws Exception {
