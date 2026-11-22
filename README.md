@@ -15,9 +15,11 @@ Custom devices are not loaded by stock Bitwig. Polarity's collection uses **Patc
 
 ## Devices
 
+The device names below link to the built files. The Panel column links to a screenshot of each panel.
+
 | Device | Type | What it does | Panel |
 | --- | --- | --- | --- |
-| [Tremolo+](devices/Tremolo+.bwdevice) | Audio FX | Tremolo with Bitwig's seven LFO shapes, a Rate knob paired with Bitwig's full timebase list (Hz, kHz, bar, straight/dotted/triplet notes, pitch of the current note, hold), depth, and a note-retrigger toggle. [Design notes](src/tremolo-plus/README.md) | — |
+| [Tremolo+](devices/Tremolo+.bwdevice) | Audio FX | Tremolo with Bitwig's seven LFO shapes, a Rate knob paired with Bitwig's full timebase list (Hz, kHz, bar, straight/dotted/triplet notes, pitch of the current note, hold), depth, and a note-retrigger toggle. [Design notes](src/tremolo-plus/README.md) | [Preview](previews/tremolo-plus.png) |
 
 ## Modulators
 
