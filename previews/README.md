@@ -5,3 +5,5 @@ Panel screenshots for the device table in the main README, one PNG per device, n
 | File | Device |
 | --- | --- |
 | `tremolo-plus.png` | Tremolo+ |
+| `asd-vibrato.png` | ASD Vibrato |
+| `asd-vibrato-mockup.png` | ASD Vibrato design mockup (from the Bitwig Device Builder tool) |

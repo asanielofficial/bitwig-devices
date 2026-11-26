@@ -20,6 +20,7 @@ The device names below link to the built files. The Panel column links to a scre
 | Device | Type | What it does | Panel |
 | --- | --- | --- | --- |
 | [Tremolo+](devices/Tremolo+.bwdevice) | Audio FX | Tremolo with Bitwig's seven LFO shapes, a Rate knob paired with Bitwig's full timebase list (Hz, kHz, bar, straight/dotted/triplet notes, pitch of the current note, hold), depth, and a note-retrigger toggle. [Design notes](src/tremolo-plus/README.md) | [Preview](previews/tremolo-plus.png) |
+| [ASD Vibrato](devices/ASD%20Vibrato.bwdevice) | Audio FX | Pitch vibrato from a modulated delay line: Bitwig's seven LFO shapes, Rate with the full timebase list, depth in cents, stereo phase, mix and note retrigger. Live curve display. [Design notes](src/asd-vibrato/README.md) | [Preview](previews/asd-vibrato.png) |
 
 ## Modulators
 
@@ -33,6 +34,7 @@ None yet. See [`grid-modules/`](grid-modules).
 
 - Built against **Bitwig Studio 6.1.7** on Windows x64.
 - **Tremolo+**: loads and shows its panel in Bitwig 6.1.7 on Windows 10 (author's machine). The icons, the vertical shape buttons, the R toggle and the dropdown were checked on screen. Audio behaviour of every shape and time base, tempo sync with the transport stopped, and project recall have not been verified yet.
+- **ASD Vibrato**: loads in Bitwig 6.1.7 on Windows 10 and its live curve display draws, with the cursor and the black backdrop (author's screenshot). An earlier build's DSP worked in Bitwig. The latest changes (shapes where pitch follows the curve, smoothing on Stereo and Mix, Rate scrubbing the position in Hold) have not been confirmed by ear yet.
 - macOS, Linux and other Bitwig versions are untested.
 - Replacing a device file does not update copies already inside a saved project. Remove the device and add it again to see a new build.
 - Keep copies of the exact files your saved projects use outside the scanned folders.
